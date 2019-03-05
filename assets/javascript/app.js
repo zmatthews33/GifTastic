@@ -1,7 +1,7 @@
 var topics = [
   "run dmc",
+  "snoop doggy dogg",
   "notorious big",
-  "tupac",
   "2pac",
   "nwa",
   "mc hammer",
@@ -11,28 +11,29 @@ var topics = [
   "beastie boys",
   "outkast"
 ];
-var lowerCaseList = [];
 
 var listOfOthers = [
-  "dmx",
-  "three 6 mafia",
-  "nas",
-  "dr.dre",
+  "DMX",
+  "Three 6 Mafia",
+  "Nas",
   "dr. dre",
   "salt n pepa",
-  "jay z",
+  "Jay Z",
   "warren g",
   "lil wayne",
   "mob deep",
-  "krs one",
+  "KRS one",
   "de la soul",
   "lil jon",
   "kanye west",
   "snoop dogg",
-  "ice cube",
-  "ugk",
-  "kool keith"
+  "Ice Cube",
+  "UGK",
+  "Kool Keith",
+  "Kendrick Lamar",
+  "Cypress Hill"
 ];
+var lowerCaseList = [];
 
 for (var i = 0; i < listOfOthers.length; i++) {
   lowerCaseList.push(listOfOthers[i].toLowerCase());
@@ -42,14 +43,15 @@ $(document).ready(function() {
   renderButtons();
 });
 
-$("#button-addon").on("click", function() {
+$("#button-add").on("click", function() {
   event.preventDefault();
 
   var inputText = $("#add")
     .val()
     .trim()
     .toLowerCase();
-  if (lowerCaseList.indexOf(inputText) !== -1) {
+
+  if (lowerCaseList.indexOf(inputText) >= -1) {
     if (topics.indexOf(inputText) > -1) {
       alert(inputText + " has already been added.");
       return;
@@ -61,7 +63,7 @@ $("#button-addon").on("click", function() {
       }
     }
   } else {
-    alert(inputText + " is not on my list.");
+    alert(inputText + " is not an acceptable rapper");
   }
 });
 
