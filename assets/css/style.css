@@ -1,9 +1,35 @@
+body {
+  background-image: url("../images/rapperbg.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron {
+  background: transparent;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  background: rgba(10, 10, 10, 0.3);
+  color: #f3f329;
+}
+
 .display-4 {
   font-family: "Grand Stylus";
   text-align: center;
   font-size: 6em;
+  color: #f3f329;
 }
 
+h2 {
+  font-size: 2em;
+  background: rgba(10, 10, 10, 0.6);
+  color: #f3f329;
+}
+#gifs-appear-here {
+  background: transparent;
+  text-align: left;
+}
 .rapperImg {
   width: 300px;
   height: 300px;

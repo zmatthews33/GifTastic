@@ -31,7 +31,12 @@ var listOfOthers = [
   "UGK",
   "Kool Keith",
   "Kendrick Lamar",
-  "Cypress Hill"
+  "Cypress Hill",
+  "ice T",
+  "mf doom",
+  "mos def",
+  "ludacris",
+  "missy elliot"
 ];
 var lowerCaseList = [];
 
@@ -78,7 +83,7 @@ function renderButtons() {
 
   for (var i = 0; i < topics.length; i++) {
     var rapper = topics[i];
-    var button = $("<button class = 'rapper m-1 p- btn btn-success'/>")
+    var button = $("<button class = 'rapper m-1 p- btn btn-dark'/>")
       .attr("data-name", rapper)
       .text(rapper);
     $("#rapper-button").append(button);
@@ -90,18 +95,9 @@ $(document).on("click", ".rapper", getAPI);
 function getAPI() {
   $("#gifs-appear-here").empty();
   var rapper = $(this).attr("data-name");
-  var apiKey = "&api_key=jTWg8u1iBnfVgoly5uxq0oZxjoAiOIun";
-  var limit = "&limit=12";
-  var rating = "&rating=";
-  var queryURL =
-    "https://api.giphy.com/v1/gifs/search?q=" +
-    rapper +
-    apiKey +
-    limit +
-    rating;
+  var apiKey = "&api_key=jTWg8u1iBnfVgoly5uxq0oZxjoAiOIun&limit=12";
 
-  console.log(queryURL);
-  console.log(rating);
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + rapper + apiKey;
 
   $.ajax({
     url: queryURL,
@@ -115,12 +111,14 @@ function getAPI() {
       var rapperImg = $(
         "<img class = 'rapperImg img-fluid img-thumbnail m-2'>"
       );
+      var p = $("<p>").text("Rating: " + response.data[i].rating);
 
       rapperImg.attr({ src: stillImg, alt: rapper });
       rapperImg.attr("data-still", stillImg);
       rapperImg.attr("data-animate", animateImg);
       rapperImg.attr("data-state", "animate");
 
+      $("#gifs-appear-here").prepend(p);
       $("#gifs-appear-here").prepend(rapperImg);
     }
   });
